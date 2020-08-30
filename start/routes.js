@@ -21,6 +21,6 @@ Route.group(() => {
   Route.post('/', 'UserController.store')
 }).prefix('api/v1/users')
 
-Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
+Route.any('*', () => {
+  return { greeting: '404 ups! nothing found' }
 })

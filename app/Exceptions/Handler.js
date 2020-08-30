@@ -21,6 +21,7 @@ class ExceptionHandler extends BaseExceptionHandler {
    * @return {void}
    */
   async handle(error, { response }) {
+    console.log("Error: A", error)
     switch (error.code) {
       case '23505':
         return response.status(error.status).json({ message: error.detail })
