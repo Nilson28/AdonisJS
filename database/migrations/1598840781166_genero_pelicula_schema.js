@@ -10,7 +10,7 @@ class GeneroPeliculaSchema extends Schema {
       table.integer('pelicula', 80).notNullable()
       table.timestamps()
 
-      table.primary(columns, ['genero','pelicula'])
+      table.primary(['genero','pelicula'])
       table.foreign('genero').references('name').inTable('generos')
       table.foreign('pelicula').references('id').inTable('peliculas')
     })

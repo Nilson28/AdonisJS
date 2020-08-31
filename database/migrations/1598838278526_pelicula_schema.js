@@ -9,7 +9,7 @@ class PeliculaSchema extends Schema {
       table.integer('id').notNullable().primary()
       table.string('name', 254).notNullable()
       table.time('duration', {precision: 2})
-      table.text('description', longtext)
+      table.text('description')
       table.timestamps()
     })
   }

@@ -8,10 +8,10 @@ class CommentSchema extends Schema {
     this.create('comments', (table) => {
       table.string('usuario').notNullable()
       table.integer('pelicula').notNullable()
-      table.text('commentario', longtext).notNullable()
+      table.text('commentario').notNullable()
       table.timestamps()
 
-      table.primary(columns, ['usuario','pelicula'])
+      table.primary(['usuario','pelicula'])
       table.foreign('usuario').references('username').inTable('users')
       table.foreign('pelicula').references('id').inTable('peliculas')
     })
