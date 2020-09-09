@@ -19,3 +19,23 @@ const Route = use('Route')
 Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
+
+Route.group(() => {
+  Route.get('/', 'UserController.index')
+  Route.post('/', 'UserController.store')
+}).prefix('api/v1/users')
+
+Route.group(() => {
+  Route.get('/', 'GeneroController.index')
+  Route.post('/', 'GeneroController.store')
+}).prefix('api/v1/genero')
+
+Route.group(() => {
+  Route.get('/', 'PeliculaController.index')
+  Route.post('/', 'PeliculaController.store')
+}).prefix('api/v1/pelicula')
+
+Route.group(() => {
+  Route.get('/', 'PuntuationController.index')
+  Route.post('/', 'puntuationController.store')
+}).prefix('api/v1/puntuation')

@@ -8,6 +8,7 @@ class PeliculaSchema extends Schema {
     this.create('peliculas', (table) => {
       table.integer('id').notNullable().primary()
       table.string('name', 254).notNullable()
+      table.text('image').notNullable()
       table.time('duration', {precision: 2})
       table.text('description')
       table.timestamps()

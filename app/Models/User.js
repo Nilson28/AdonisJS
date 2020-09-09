@@ -7,6 +7,12 @@ const Model = use('Model')
 const Hash = use('Hash')
 
 class User extends Model {
+
+  static get primaryKey () {
+    return 'user_nick'
+  }
+
+
   static boot () {
     super.boot()
 
@@ -37,6 +43,10 @@ class User extends Model {
 
   comments () {
     return this.hasMany('App/Models/Comment')
+  }
+
+  puntuations () {
+    return this.hasMany('App/Models/Puntuation')
   }
 
 }

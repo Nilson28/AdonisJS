@@ -5,9 +5,13 @@ const Model = use('Model')
 
 class Genero extends Model {
 
+    static get primaryKey () {
+        return 'name'
+    }
+
     peliculas () {
-        return this.hasMany('App/Models/Pelicula')
-        .pivotTable('genero_peliculas')
+        return this
+        .belongsToMany('App/Models/Pelicula').pivotTable('genero_peliculas')
     }
 
 }

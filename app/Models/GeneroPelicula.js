@@ -5,14 +5,19 @@ const Model = use('Model')
 
 class GeneroPelicula extends Model {
 
-    generos () {
-        return this.belongsToMany('App/Models/Genero')
-    }
+  static get primaryKey() {
+    return 'id'
+  }
 
-    peliculas () {
-        return this.belongsToMany('App/Models/Pelicula')
-    }
+  generos() {
+    return this
+      .belongsToMany('App/Models/Genero')
+  }
 
+  peliculas() {
+    return this
+      .belongsToMany('App/Models/Pelicula').pivotTable('genero_peliculas')
+  }
 }
 
 module.exports = GeneroPelicula

@@ -6,14 +6,11 @@ const Schema = use('Schema')
 class CommentSchema extends Schema {
   up () {
     this.create('comments', (table) => {
-      table.string('usuario').notNullable()
-      table.integer('pelicula').notNullable()
-      table.text('commentario').notNullable()
+      table.increments('id').primary()
+      table.string('user_id').notNullable().references('users.user_nick').onDelete('cascade')
+      table.integer('pelicula_id').unsigned().notNullable().references('peliculas.id').onDelete('cascade')
+      table.text('comment').notNullable()
       table.timestamps()
-
-      table.primary(['usuario','pelicula'])
-      table.foreign('usuario').references('username').inTable('users')
-      table.foreign('pelicula').references('id').inTable('peliculas')
     })
   }
 

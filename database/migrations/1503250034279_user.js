@@ -8,11 +8,12 @@ class UserSchema extends Schema {
     this.create('users', (table) => {
       table.string('name', 80).notNullable()
       table.string('last_name', 80).notNullable()
-      table.string('username', 80).notNullable().unique().primary()
+      table.string('user_nick', 80).notNullable().unique().primary()
       table.string('email', 254).notNullable().unique()
       table.string('password', 60).notNullable()
-      table.string('sexo', 80)
-      table.integer('edad').notNullable()
+      table.boolean('type_user').defaultTo(false)
+      table.string('gender', 80)
+      table.integer('age').notNullable().unsigned()
       table.timestamps()
     })
   }

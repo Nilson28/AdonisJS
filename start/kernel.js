@@ -3,6 +3,7 @@
 /** @type {import('@adonisjs/framework/src/Server')} */
 const Server = use('Server')
 
+
 /*
 |--------------------------------------------------------------------------
 | Global Middleware
@@ -55,6 +56,8 @@ const serverMiddleware = [
 ]
 
 Server
+  .use(['Adonis/Middleware/Cors'])
   .registerGlobal(globalMiddleware)
   .registerNamed(namedMiddleware)
   .use(serverMiddleware)
+  
