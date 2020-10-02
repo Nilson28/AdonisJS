@@ -32,6 +32,7 @@ Route.group(() => {
 
 Route.group(() => {
   Route.get('/', 'PeliculaController.index')
+  Route.get('/:movie_id', 'PeliculaController.show')
   Route.post('/', 'PeliculaController.store')
 }).prefix('api/v1/pelicula')
 

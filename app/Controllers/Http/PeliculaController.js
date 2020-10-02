@@ -81,9 +81,11 @@ class PeliculaController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show({ params, request, response, view }) {
-    const movieId = request.only(["id"]);
+  async show({ params, response }) {
+    const movieId = params.movie_id;
     const pelicula = await Pelicula.findBy("id", movieId);
+    await pelicula.load("generos");
+    await pelicula.load("comments");
     response.status(202).json(pelicula);
   }
 
