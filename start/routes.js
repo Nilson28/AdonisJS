@@ -39,3 +39,8 @@ Route.group(() => {
   Route.get('/', 'PuntuationController.index')
   Route.post('/', 'puntuationController.store')
 }).prefix('api/v1/puntuation')
+
+Route.group(() => {
+  Route.get('/', 'CommentController.index')
+  Route.post('/', 'CommentController.store')
+}).prefix('api/v1/comment')

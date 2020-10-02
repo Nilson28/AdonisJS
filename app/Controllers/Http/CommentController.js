@@ -44,7 +44,7 @@ class CommentController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
-    const commentData = request.only(['user_nick', 'pelicula_id', 'comment'])
+    const commentData = request.only(['user_id', 'pelicula_id', 'comment'])
     const comment = await Comment.create(commentData)
     response.status(202).json(comment)
   }

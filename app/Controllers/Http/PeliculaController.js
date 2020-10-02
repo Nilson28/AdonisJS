@@ -24,12 +24,13 @@ class PeliculaController {
    */
   async index({ request, response, view }) {
     const peliculas = await Pelicula.query()
-      //.with("generos")
+      .with("generos")
+      .with("comments")
       // .with("puntuations", (builder) => {
       //   builder.getAvg('puntuation')
       // })
       /* .avg("id") */
-      .with("puntuations")
+      // .with("puntuations")
       .fetch();
     response.status(202).json(peliculas);
   }

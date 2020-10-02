@@ -5,8 +5,12 @@ const Model = use('Model')
 
 class Comment extends Model {
 
+    static get primaryKey () {
+        return 'id'
+    }
+
     users () {
-        return this.belongsTo('App/Models/Genero')
+        return this.belongsTo('App/Models/User')
     }
 
     peliculas () {
