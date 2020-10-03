@@ -26,11 +26,6 @@ class PeliculaController {
     const peliculas = await Pelicula.query()
       .with("generos")
       .with("comments")
-      // .with("puntuations", (builder) => {
-      //   builder.getAvg('puntuation')
-      // })
-      /* .avg("id") */
-      // .with("puntuations")
       .fetch();
     response.status(202).json(peliculas);
   }
@@ -56,9 +51,9 @@ class PeliculaController {
    */
   async store({ request, response }) {
     const movieData = request.only([
-      "id",
       "name",
       "image",
+      "video",
       "duration",
       "description",
     ]);
@@ -85,7 +80,7 @@ class PeliculaController {
     const movieId = params.movie_id;
     const pelicula = await Pelicula.findBy("id", movieId);
     await pelicula.load("generos");
-    await pelicula.load("comments");
+    await pelicula.load("comments.users");
     response.status(202).json(pelicula);
   }
 

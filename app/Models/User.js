@@ -9,7 +9,7 @@ const Hash = use('Hash')
 class User extends Model {
 
   static get primaryKey () {
-    return 'user_nick'
+    return 'id'
   }
 
 

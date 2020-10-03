@@ -96,6 +96,11 @@ class UserController {
    */
   async destroy ({ params, request, response }) {
   }
+
+  async login ({request, response}) {
+    const data = request.only(['user_nick','password'])
+    
+  }
 }
 
 module.exports = UserController

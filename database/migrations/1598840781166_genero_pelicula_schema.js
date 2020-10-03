@@ -6,9 +6,9 @@ const Schema = use('Schema')
 class GeneroPeliculaSchema extends Schema {
   up () {
     this.create('genero_peliculas', (table) => {
-      table.increments('id').primary()
-      table.string('genero_id', 80).unsigned().references('generos.name').index('genero_id').onDelete('cascade')
-      table.integer('pelicula_id', 80).unsigned().references('peliculas.id').index('pelicula_id').onDelete('cascade')
+      table.increments()
+      table.integer('genero_id', 80).unsigned().references('generos.id').onDelete('cascade')
+      table.integer('pelicula_id', 80).unsigned().references('peliculas.id').onDelete('cascade')
       table.timestamps()
     })
   }

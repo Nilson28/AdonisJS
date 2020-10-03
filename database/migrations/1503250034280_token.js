@@ -7,8 +7,8 @@ class TokensSchema extends Schema {
   up () {
     this.create('tokens', (table) => {
       table.increments()
-      table.string('user_username').unsigned().references('user_nick').inTable('users')
-      table.string('token', 255).notNullable().unique().index()
+      table.integer('user_id').unsigned().references('users.id')
+      table.string('token', 255).notNullable().unique()
       table.string('type', 80).notNullable()
       table.boolean('is_revoked').defaultTo(false)
       table.timestamps()

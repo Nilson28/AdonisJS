@@ -6,8 +6,8 @@ const Schema = use('Schema')
 class CommentSchema extends Schema {
   up () {
     this.create('comments', (table) => {
-      table.increments('id').primary()
-      table.string('user_id').notNullable().references('users.user_nick').onDelete('cascade')
+      table.increments()
+      table.integer('user_id').notNullable().references('users.id').onDelete('cascade')
       table.integer('pelicula_id').unsigned().notNullable().references('peliculas.id').onDelete('cascade')
       table.text('comment').notNullable()
       table.timestamps()

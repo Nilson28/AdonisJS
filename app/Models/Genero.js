@@ -6,7 +6,7 @@ const Model = use('Model')
 class Genero extends Model {
 
     static get primaryKey () {
-        return 'name'
+        return 'id'
     }
 
     peliculas () {
