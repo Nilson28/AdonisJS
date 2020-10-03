@@ -44,5 +44,5 @@ Route.group(() => {
 
 Route.group(() => {
   Route.get("/", "CommentController.index");
-  Route.post("/", "CommentController.store");
+  Route.post("/", "CommentController.store").middleware('auth');
 }).prefix("api/v1/comment");

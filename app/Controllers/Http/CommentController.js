@@ -46,6 +46,7 @@ class CommentController {
   async store ({ request, response }) {
     const commentData = request.only(['user_id', 'pelicula_id', 'comment'])
     const comment = await Comment.create(commentData)
+    await comment.load("users")
     response.status(202).json(comment)
   }
 

@@ -101,8 +101,7 @@ class UserController {
     const userInfo = request.only(['user_nick', 'password'])
     const accessToken = await auth.attempt(userInfo.user_nick, userInfo.password)
     const user = await User.findBy('user_nick', userInfo.user_nick)
-    // let accessToken = await auth.generate(user)
-    return response.status(202).json({ ...accessToken, user })
+    return response.status(202).json({ access: accessToken, user })
   }
 }
 
