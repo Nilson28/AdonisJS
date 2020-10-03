@@ -97,9 +97,12 @@ class UserController {
   async destroy ({ params, request, response }) {
   }
 
-  async login ({request, response}) {
-    const data = request.only(['user_nick','password'])
-    
+  async login({ request, auth, response }) {
+    const userInfo = request.only(['user_nick', 'password'])
+    const accessToken = await auth.attempt(userInfo.user_nick, userInfo.password)
+    const user = await User.findBy('user_nick', userInfo.user_nick)
+    // let accessToken = await auth.generate(user)
+    return response.status(202).json({ ...accessToken, user })
   }
 }
 
