@@ -1,0 +1,23 @@
+{
+    "version": 2,
+    "name": "transport_back",
+    "builds": [
+      {
+        "src": "/server.js",
+        "use": "@now/node-server",
+        "config": {
+          "includeFiles": ["**"],
+          "maxLambdaSize": "50mb"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/server.js"
+      }
+    ],
+    "env": {
+      "ENV_PATH": "vercel.env"
+    }
+  }

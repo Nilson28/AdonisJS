@@ -29,6 +29,7 @@ Route.group(() => {
 Route.group(() => {
   Route.get("/", "GeneroController.index");
   Route.post("/", "GeneroController.store");
+  Route.delete("/:id", "GeneroController.destroy");
 }).prefix("api/v1/genero");
 
 Route.group(() => {

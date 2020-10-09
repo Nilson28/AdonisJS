@@ -94,6 +94,10 @@ class GeneroController {
    * @param {Response} ctx.response
    */
   async destroy ({ params, request, response }) {
+    const {id} = params
+    const genero = await Genero.find(id)
+    const deleteRow = await genero.delete()
+    response.status(202).json(deleteRow)
   }
 }
 

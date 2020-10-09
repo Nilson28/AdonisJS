@@ -45,7 +45,7 @@ class UserController {
    */
   async store ({ request, response }) {
     
-    const data = request.only(['name','last_name','user_nick','email','password','gender','age'])
+    const data = request.only(['name','last_name','user_nick','email','password', 'type_user','gender','age'])
     const user = await User.create(data)
     response.status(202).json(user)
 
